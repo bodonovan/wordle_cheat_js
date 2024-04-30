@@ -1,0 +1,14 @@
+{
+  "name": "wordle_cheat_js",
+  "version": "1.0.0",
+  "description": "Utility to help with guessing in NYT wordle game",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Brian O'Donovan",
+  "license": "Apache",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}

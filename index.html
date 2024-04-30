@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <title>Hello World Simple App</title>
+
+<script>
+    // alert('loading dictionary');
+
+    const dict = [
+	'aalii',
+	'Aaron',
+	'abaca',
+	'aback',
+	'abaff',
+	'abaft',
+]
+
+    // alert('loaded dictionary');
+    console.log('dictionary contains '+dict.length+' entries');
+
+</script>
+        <!-- <script src='client.js' /> -->
+    </head>
+    <body>
+        <div>
+            <label for="posn">Position:</label>
+            <input type="text" id="posn" name="posn" required minlength="1" maxlength="1" size="1" value="1"/>
+
+            <label for="char">Character:</label>
+            <input type="text" id="char" name="char" required minlength="1" maxlength="1" size="1" />
+
+            <button type="button" onclick="alert('match clicked')">Match</button>
+
+            <button type="button" onclick="alert('in clicked')">In</button>
+
+            <button type="button" onclick="alert('out clicked')">Out</button>
+
+            <button type="button" onclick="alert('clear clicked')">Clear</button>
+        </div>
+        <div>Possible Matches: <br/>Text area</div>
+    </body>
+</html>
