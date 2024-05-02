@@ -16,13 +16,34 @@
 	'aback',
 	'abaff',
 	'abaft',
-]
+    'Aucan',
+	'audio',
+	'audit',
+	'Aueto',
+	'auges',
+	'augen',
+	'auger',
+	'Baume',
+	'bauns',
+	'bauno',
+	'Baure',
+	'bauta',
+	'bavin',
+	'bawds',
+    'xxx',
+    ]
 
     // alert('loaded dictionary');
     console.log('dictionary contains '+dict.length+' entries');
 
+    function write_possible() {
+        console.log('Writing possible matches');
+        return;
+    }
+
+    write_possible();
+
 </script>
-        <!-- <script src='client.js' /> -->
     </head>
     <body>
         <div>
@@ -40,6 +61,48 @@
 
             <button type="button" onclick="alert('clear clicked')">Clear</button>
         </div>
-        <div>Possible Matches: <br/>Text area</div>
+        <div> 
+            <label for="possible_matches">Possible Matches:</label>
+            <br/>
+            <textarea id="possible_matches" name="possible_matches" rows="10" cols="60"></textarea>
+        </div>
+    <script>
+
+        const WORDS_PER_LINE = 5
+        const MAX_WORDS = 25
+
+        function add_word(value) {
+            txt += value + " "; 
+        }
+
+        function display_possible() {
+            let txt = "";
+            for (let i = 0; i < possible_matches.length; i++) {
+                console.log("Adding word :"+possible_matches[i])
+                text += possible_matches[i];
+                text += " "
+            }
+            // possible_matches.forEach(add_word);
+            document.getElementById("possible_matches").innerHTML = txt;
+
+            // document.getElementById("possible_matches").innerHTML = "new test words";
+            // for (let i = 0; i < possible_matches.length; i++) {
+            //     console.log("Possible word: ", possible_matches[i])  
+            //     document.getElementById("possible_matches").innerHTML += possible_matches; 
+            //     document.getElementById("possible_matches").innerHTML += ' '; 
+            // var x =  document.getElementById("possible_matches");
+            // x =  document.getElementById("possible_matches").innerHTML;        
+        }
+
+        
+        function clear_guess() {
+            var possible_matches = dict;
+            display_possible();
+        }
+
+    clear_guess();
+
+
+    </script>
     </body>
 </html>
