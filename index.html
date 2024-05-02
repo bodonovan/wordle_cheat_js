@@ -71,29 +71,19 @@
         const WORDS_PER_LINE = 5
         const MAX_WORDS = 25
 
-        function add_word(value) {
-            txt += value + " "; 
-        }
-
         function display_possible() {
-            let txt = "";
-            for (let i = 0; i < possible_matches.length; i++) {
-                console.log("Adding word :"+possible_matches[i])
-                text += possible_matches[i];
+            let text = "";
+
+            for (let word in possible_matches) {
+                console.log("Adding word :"+word);
+                text += word;
                 text += " "
+
             }
-            // possible_matches.forEach(add_word);
-            document.getElementById("possible_matches").innerHTML = txt;
 
-            // document.getElementById("possible_matches").innerHTML = "new test words";
-            // for (let i = 0; i < possible_matches.length; i++) {
-            //     console.log("Possible word: ", possible_matches[i])  
-            //     document.getElementById("possible_matches").innerHTML += possible_matches; 
-            //     document.getElementById("possible_matches").innerHTML += ' '; 
-            // var x =  document.getElementById("possible_matches");
-            // x =  document.getElementById("possible_matches").innerHTML;        
+            document.getElementById("possible_matches").innerHTML = text;
+
         }
-
         
         function clear_guess() {
             var possible_matches = dict;
