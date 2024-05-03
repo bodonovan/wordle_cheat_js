@@ -15,7 +15,7 @@
             <label for="char">Character:</label>
             <input type="text" id="char" name="char" required minlength="1" maxlength="1" size="1" />
 
-            <button type="button" onclick="alert('match clicked')">Match</button>
+            <button type="button" onclick=match_clicked()> Match</button>
 
             <button type="button" onclick="alert('in clicked')">In</button>
 
@@ -30,8 +30,8 @@
         </div>
     <script>
 
-        const WORDS_PER_LINE = 5
-        const MAX_WORDS = 25
+    const MAX_WORDS = 25
+
     // alert('loading dictionary');
 
     //const dict = new Set(['aalii', 'Aaron', 'auger', 'Baume', 'bawds', 'xxx'])
@@ -120,32 +120,44 @@
 
     write_possible();
 
-        function display_possible() {
-            let text = "";
+    function display_possible() {
+        let text = "";
 
-            wc = 0
-            for (const word of active_dict) {
-                wc += 1;
-                if (wc>MAX_WORDS) {
-                    console.log ('reached word limit');
-                    text += " ...";
-                    break;
-                }
-                console.log("Adding word :"+word);
-                text += word;
-                text += " "
+        wc = 0
+        for (const word of active_dict) {
+            wc += 1;
+            if (wc>MAX_WORDS) {
+                console.log ('reached word limit');
+                text += " ...";
+                break;
             }
-
-            document.getElementById("possible_matches").innerHTML = text;
-
+            console.log("Adding word :"+word);
+            text += word;
+            text += " "
         }
-        
-        function clear_guess() {
-            var active_dict = dict;
-            display_possible();
-        }
+
+        document.getElementById("possible_matches").innerHTML = text;
+
+    }
+    
+    function clear_guess() {
+        var active_dict = dict;
+        display_possible();
+    }
 
     clear_guess();
+
+    function match_clicked() {
+        // alert('match clicked again');
+        match_char = document.getElementById("char").innerHTML
+        if (1 != match_char.length) {
+            alert("Specify a single character to match");
+            return;
+        } else {
+            alert("Matching character "+match_char)
+        }
+
+    }
 
 
     </script>
