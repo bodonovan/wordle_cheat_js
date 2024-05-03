@@ -6,44 +6,6 @@
         
         <title>Hello World Simple App</title>
 
-<script>
-    // alert('loading dictionary');
-
-    const dict = [
-	'aalii',
-	'Aaron',
-	'abaca',
-	'aback',
-	'abaff',
-	'abaft',
-    'Aucan',
-	'audio',
-	'audit',
-	'Aueto',
-	'auges',
-	'augen',
-	'auger',
-	'Baume',
-	'bauns',
-	'bauno',
-	'Baure',
-	'bauta',
-	'bavin',
-	'bawds',
-    'xxx',
-    ]
-
-    // alert('loaded dictionary');
-    console.log('dictionary contains '+dict.length+' entries');
-
-    function write_possible() {
-        console.log('Writing possible matches');
-        return;
-    }
-
-    write_possible();
-
-</script>
     </head>
     <body>
         <div>
@@ -70,15 +32,108 @@
 
         const WORDS_PER_LINE = 5
         const MAX_WORDS = 25
+    // alert('loading dictionary');
+
+    //const dict = new Set(['aalii', 'Aaron', 'auger', 'Baume', 'bawds', 'xxx'])
+	const dict = new Set([
+	'aalii',
+	'Aanis',
+	'Aaron',
+	'Aarus',
+	'abacs',
+	'abaca',
+	'aback',
+	'abaff',
+	'abaft',
+	'Abama',
+	'abass',
+	'abase',
+	'abash',
+	'abask',
+	'abate',
+	'abave',
+	'abaze',
+	'Abbas',
+	'abbas',
+	'abbey',
+	'Abbie',
+	'abbot',
+	'Abbys',
+    'becry',
+	'becut',
+	'bedad',
+	'beday',
+	'bedel',
+	'beden',
+	'bedew',
+	'bedim',
+	'bedin',
+	'bedip',
+	'bedog',
+	'bedot',
+	'bedub',
+	'bedur',
+	'bedye',
+	'beech',
+	'beefs',
+	'beefy',
+	'clays',
+	'clead',
+	'cleam',
+	'clean',
+	'clear',
+	'cleat',
+	'cleck',
+	'cleds',
+	'clees',
+	'cleek',
+	'clefs',
+	'cleft',
+	'clegs',
+	'Clems',
+	'clems',
+	'cleps',
+	'clerk',
+	'cleve',
+	'clews',
+	'click',
+	'Cliff',
+	'cliff',
+	'clift',
+	'clima',
+	'climb',
+	'clime',
+	'cline',
+	'cling',
+
+    ])
+
+    // alert('loaded dictionary');
+    console.log('dictionary contains '+dict.length+' entries');
+
+    active_dict = dict;
+
+    function write_possible() {
+        console.log('Writing possible matches');
+        return;
+    }
+
+    write_possible();
 
         function display_possible() {
             let text = "";
 
-            for (let word in possible_matches) {
+            wc = 0
+            for (const word of active_dict) {
+                wc += 1;
+                if (wc>MAX_WORDS) {
+                    console.log ('reached word limit');
+                    text += " ...";
+                    break;
+                }
                 console.log("Adding word :"+word);
                 text += word;
                 text += " "
-
             }
 
             document.getElementById("possible_matches").innerHTML = text;
@@ -86,7 +141,7 @@
         }
         
         function clear_guess() {
-            var possible_matches = dict;
+            var active_dict = dict;
             display_possible();
         }
 
