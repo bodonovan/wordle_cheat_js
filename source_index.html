@@ -6,25 +6,92 @@
         
         <title>Hello World Simple App</title>
 
-<script>
-    alert('loading dictionary');
-
-    const dict = [
-	'aalii',
-	'Aaron',
-	'abaca',
-	'aback',
-	'abaff',
-	'abaft',
-]
-
-    alert('loaded dictionary');
-    console.log('dictionary contains '+dict.length+' entries');
-
-</script>
-        <!-- <script src='client.js' /> -->
+        <script>
+DICT_GOES_HERE
+        </script>
     </head>
     <body>
-        <div>Hello World!</div>
+        <div>
+            <label for="posn">Position:</label>
+            <input type="text" id="posn" name="posn" required minlength="1" maxlength="1" size="1" value="1"/>
+
+            <label for="char">Character:</label>
+            <input type="text" id="char" name="char" required minlength="1" maxlength="1" size="1" />
+
+            <button type="button" onclick=match_clicked()> Match</button>
+
+            <button type="button" onclick="alert('in clicked')">In</button>
+
+            <button type="button" onclick="alert('out clicked')">Out</button>
+
+            <button type="button" onclick="alert('clear clicked')">Clear</button>
+        </div>
+        <div> 
+            <label for="possible_matches">Possible Matches:</label>
+            <br/>
+            <textarea id="possible_matches" name="possible_matches" rows="10" cols="60"></textarea>
+        </div>
+    <script>
+
+    const MAX_WORDS = 25
+
+    // alert('loading dictionary');
+
+
+    // alert('loaded dictionary');
+    // console.log('dictionary contains '+dict.length+' entries');
+    console.log('Dictionary: ', dict);
+
+    active_dict = dict;
+
+    function write_possible() {
+        console.log('Writing possible matches');
+        return;
+    }
+
+    write_possible();
+
+    function display_possible() {
+        let text = "";
+
+        wc = 0
+        for (const word of active_dict) {
+            wc += 1;
+            if (wc>MAX_WORDS) {
+                console.log ('reached word limit');
+                text += " ...";
+                break;
+            }
+            console.log("Adding word :"+word);
+            text += word;
+            text += " "
+        }
+
+        document.getElementById("possible_matches").innerHTML = text;
+
+    }
+    
+    function clear_guess() {
+        var active_dict = dict;
+        display_possible();
+    }
+
+    clear_guess();
+
+    function match_clicked() {
+        // alert('match clicked again');
+        match_elem = document.getElementById("char");
+        match_char = match_elem.innerHTML;
+        if (1 != match_char.length) {
+            alert("Specify a single character to match");
+            return;
+        } else {
+            alert("Matching character "+match_char)
+        }
+
+    }
+
+
+    </script>
     </body>
 </html>

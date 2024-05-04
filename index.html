@@ -6,6 +6,8 @@
         
         <title>Hello World Simple App</title>
 
+        <script>
+        </script>
     </head>
     <body>
         <div>
@@ -34,82 +36,10 @@
 
     // alert('loading dictionary');
 
-    //const dict = new Set(['aalii', 'Aaron', 'auger', 'Baume', 'bawds', 'xxx'])
-	const dict = new Set([
-	'aalii',
-	'Aanis',
-	'Aaron',
-	'Aarus',
-	'abacs',
-	'abaca',
-	'aback',
-	'abaff',
-	'abaft',
-	'Abama',
-	'abass',
-	'abase',
-	'abash',
-	'abask',
-	'abate',
-	'abave',
-	'abaze',
-	'Abbas',
-	'abbas',
-	'abbey',
-	'Abbie',
-	'abbot',
-	'Abbys',
-    'becry',
-	'becut',
-	'bedad',
-	'beday',
-	'bedel',
-	'beden',
-	'bedew',
-	'bedim',
-	'bedin',
-	'bedip',
-	'bedog',
-	'bedot',
-	'bedub',
-	'bedur',
-	'bedye',
-	'beech',
-	'beefs',
-	'beefy',
-	'clays',
-	'clead',
-	'cleam',
-	'clean',
-	'clear',
-	'cleat',
-	'cleck',
-	'cleds',
-	'clees',
-	'cleek',
-	'clefs',
-	'cleft',
-	'clegs',
-	'Clems',
-	'clems',
-	'cleps',
-	'clerk',
-	'cleve',
-	'clews',
-	'click',
-	'Cliff',
-	'cliff',
-	'clift',
-	'clima',
-	'climb',
-	'clime',
-	'cline',
-	'cling',
-
-    ])
 
     // alert('loaded dictionary');
-    console.log('dictionary contains '+dict.length+' entries');
+    // console.log('dictionary contains '+dict.length+' entries');
+    console.log('Dictionary: ', dict);
 
     active_dict = dict;
 
@@ -149,7 +79,8 @@
 
     function match_clicked() {
         // alert('match clicked again');
-        match_char = document.getElementById("char").innerHTML
+        match_elem = document.getElementById("char");
+        match_char = match_elem.innerHTML;
         if (1 != match_char.length) {
             alert("Specify a single character to match");
             return;
