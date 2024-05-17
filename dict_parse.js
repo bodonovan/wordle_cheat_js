@@ -21,6 +21,7 @@ fs.readFile(inputFile, 'utf8', (err, data) => {
   // Write lines to output file
   wc = 0;
   lines.forEach(line => {
+    line = line.toLowerCase();
     if (5==line.length) {
       // if word length is 5 - copy to dictionary
       outputStream.write(' \''+line + '\',');
